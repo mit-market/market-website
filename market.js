@@ -9,7 +9,7 @@ var app = express();
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public')); // set public folder
+app.use(express.static(__dirname + '/client')); // set client folder
 app.set('view engine', 'html');	// set view engine as simple html reader
 app.engine('html', function(path, options, cb) {
     fs.readFile(path, 'utf-8', cb);
