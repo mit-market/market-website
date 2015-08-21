@@ -1,16 +1,28 @@
-<!DOCTYPE html>
 <html lang="en" ng-app="marketApp">
-  
-  <head>
-    <meta charset="utf-8">
-    <title>MIT Market</title>
-  </head>
-  
-  <body>
-    to be constructed
-  </body>
 
-  <script src="../assets/vendor/angular.min.js"></script>
-  <script src="../app.js"></script>
-  
+    <head>
+        <meta charset="utf-8">
+        <title>MIT Market</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="assets/css/materialize.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+    </head>
+
+    <!-- view -->
+    <body>
+        <div ng-view></div>
+    </body>
+
+    <!-- vendor -->
+    <script src="/assets/js/angular.min.js"></script>
+    <script src="/assets/js/angular-route.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/materialize.js"></script>
+
+    <!-- angular files -->
+    <script src="/market-app.js"></script>
+    <script src="/controllers/splash-controller.js"></script>
+
 </html>

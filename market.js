@@ -1,30 +1,34 @@
-// REQUIRES //
+// PACKAGES //
 var express = require('express');
+var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var fs = require('fs');
+var favicon = require('serve-favicon');
+var mongoose = require('mongoose');
 
-// EXPRESS //
+// SERVER FILES //
+var index = require('./server/routes/index');
+var configDatabase = require('./server/config/database');
+
+// APP //
 var app = express();
-app.use(morgan('dev')); // log every request to the console
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/client')); // set client folder
-app.set('view engine', 'html');	// set view engine as simple html reader
-app.engine('html', function(path, options, cb) {
-    fs.readFile(path, 'utf-8', cb);
+
+// DATABASE //
+mongoose.connect(configDatabase.uri);
+
+// VIEW ENGINE //
+app.set('view engine', 'html');
+app.engine('html', function(path, options, callback) {
+    fs.readFile(path, 'utf-8', callback);
 });
 
-// ROUTES //
-routes = require('./server/routes/routes');
-app.use('/', routes);
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500); // general error handler
-});
+// MIDDLEWARE //
+app.use(morgan('dev')); // logger
+app.use(express.static(__dirname + '/client')); // set static folder
+app.use(favicon(__dirname + '/client/assets/img/favicon.ico')); // favicon
+app.use(bodyParser.json()); // parse json
+app.use(bodyParser.urlencoded({ extended: true })); // parse forms
+app.use('/', index); // index routes
+app.use(function(err, req, res, next) { res.status(err.status || 500); }); // general error handler
 
-// LAUNCH //
-var port = process.env.PORT || 5000;
-app.listen(port, function() {
-    console.log("running at localhost:" + port);
-});
 module.exports = app;

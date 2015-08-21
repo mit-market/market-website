@@ -1,15 +1,31 @@
 {
   "name": "market-website",
   "version": "1.0.0",
+  "license": "MIT",
+  "description": "MIT Market Webiste",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mit-market/market-webiste"
+  },
   "dependencies": {
     "angular": "^1.4.3",
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "fs": "0.0.2",
-    "morgan": "^1.6.1",
-    "path": "^0.11.14"
+    "angular-route": "^1.4.3",
+    "body-parser": "^1.10.1",
+    "express": "^4.11.0",
+    "jquery": "^2.1.4",
+    "materialize-css": "^0.96.1",
+    "mongoose": "^4.0.1",
+    "morgan": "^1.5.1",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4",
+    "merge-stream": "^1.0.0",
+    "nodemon": "^1.4.0"
+  },
+  "scripts": {
+    "start": "nodemon start.js",
+    "dev": "gulp"
   }
 }
