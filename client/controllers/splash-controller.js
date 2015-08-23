@@ -1,3 +1,3 @@
 angular.module('marketApp').controller('splashController', function ($scope) {
-    $scope.text = "splash";
+    $scope.text = "MIT Market";
 });

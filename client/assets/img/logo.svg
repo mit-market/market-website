@@ -1,0 +1,10 @@
+
+	<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+	 <g style="background-color: #222222">
+	  <rect id="svg_1" height="400" width="400" y="0" x="0" fill="#222222"/>
+	  <path d="M50 50 L 50 350 L 200 200 Z" fill="#008877"/>
+	  <path d="M350 350 L 50 350 L 200 200 Z" fill="#FFDD55"/>
+	  <path d="M350 50 L 350 350 L 200 200 Z" fill="#CC1144"/>
+	 </g>
+	</svg>
+	
