@@ -1,11 +1,10 @@
 // ROUTER //
 var router = require('express').Router();
 
-// CONTROLLERS //
-var viewController = require('../controllers/view-controller');
-var personController = require('../controllers/person-controller');
+// HANDLERS //
+var viewHandler = require('../handlers/view-handler');
 
 // ROUTES //
-router.get('/*', viewController.index);
+router.get('/*', viewHandler.index);
 
 module.exports = router;

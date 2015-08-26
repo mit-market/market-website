@@ -7,6 +7,7 @@ var favicon = require('serve-favicon');
 var mongoose = require('mongoose');
 
 // SERVER FILES //
+var api = require('./server/routes/api');
 var index = require('./server/routes/index');
 var configDatabase = require('./server/config/database');
 
@@ -28,6 +29,7 @@ app.use(express.static(__dirname + '/client')); // set static folder
 app.use(favicon(__dirname + '/client/assets/img/favicon.ico')); // favicon
 app.use(bodyParser.json()); // parse json
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
+app.use('/api/', api); // api routes
 app.use('/', index); // index routes
 app.use(function(err, req, res, next) { res.status(err.status || 500); }); // general error handler
 

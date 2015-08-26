@@ -1,8 +1,8 @@
-var personController = {};
+var personHandler = {};
 
 var Person = require('../models/person');
 
-personController.newperson = function (req, res) {
+personHandler.create = function (req, res) {
 
     var person = Person({
         name: req.body.name,
@@ -17,4 +17,4 @@ personController.newperson = function (req, res) {
 
 };
 
-module.exports = personController;
+module.exports = personHandler;
